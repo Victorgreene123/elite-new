@@ -10,6 +10,7 @@ const Footer =() =>{
         <>
         <div className="w-full lg:w-[90%] mx-auto p-5 text-white mt-5">
     <div className="flex items-start space-x-2 lg:space-x-20 justify-around ">
+    {/* <div className="block"> */}
 
         <div className="block">
             <img src={logo} className='block w-16 lg:w-32 mb-1'></img>
