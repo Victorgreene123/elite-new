@@ -132,18 +132,18 @@ const Explore = () => {
       </div>
 
       <div className="border-t border-b border-gray-400 px-2 text-white mt-6 w-full">
-        <div className="flex gap-4 lg:w-3/5 lg:mx-auto justify-center">
+        <div className="flex gap-4 lg:w-3/5 lg:mx-auto lg:justify-center overflow-x-auto ">
           {jobtypes.map((tab) => (
-            <li
+            <div
               key={tab.name}
               onClick={() => setActiveTab(tab.name)}
-              className={`cursor-pointer bg-gray-400 border-t-2 border-b-2 border-white text-sm lg:text-[1.2rem] gap-2 p-2 px-3 flex items-center ${
+              className={`cursor-pointer bg-gray-400 border-t-2 border-b-2  flex-shrink-0 border-white text-sm lg:text-[1.2rem]  lg:w-auto  gap-2 p-2 px-3 flex items-center ${
                 activeTab === tab.name ? '' : 'border-none opacity-30'
               }`}
             >
               <img src={tab.icon} width={25} alt={tab.name} />
               {tab.name}
-            </li>
+            </div>
           ))}
         </div>
       </div>
@@ -321,12 +321,12 @@ const Explore = () => {
         <h1 className="text-3xl lg:text-5xl font-bold">Explore Related Jobs</h1>
       </div>
       <div className="border-t border-b border-gray-400 px-2 text-white mt-6 w-full">
-        <div className="flex gap-4 lg:w-3/5 lg:mx-auto justify-center">
+        <div className="flex gap-4 lg:w-3/5 lg:mx-auto lg:justify-center overflow-x-auto">
           {jobtypes.map((tab) => (
             <li
               key={tab.name}
               onClick={() => setActiveTab(tab.name)}
-              className={`cursor-pointer bg-gray-400 border-t-2 border-b-2 border-white text-sm lg:text-[1.2rem] gap-2 p-2 px-3 flex items-center ${
+              className={`cursor-pointer bg-gray-400 border-t-2 border-b-2 flex-shrink-0 border-white text-sm lg:text-[1.2rem] gap-2 p-2 px-3 flex items-center ${
                 activeTab === tab.name ? '' : 'border-none opacity-30'
               }`}
             >

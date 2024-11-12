@@ -1,0 +1,50 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "package.json",
+        "use": "@vercel/node"
+      },
+      {
+        "src": "public/**/*",
+        "use": "@vercel/static"
+      }
+    ],
+    "routes": [
+      { "src": "/api/(.*)", "dest": "/api/index.js" },
+      { "src": "/(.*)", "dest": "/public/$1" }
+    ],
+    "rewrites": [
+      {
+        "source": "/old-path",
+        "destination": "/new-path"
+      }
+    ],
+    "redirects": [
+      {
+        "source": "/deprecated-path",
+        "destination": "/updated-path",
+        "permanent": true
+      }
+    ],
+    "headers": [
+      {
+        "source": "/(.*)",
+        "headers": [
+          { "key": "X-Content-Type-Options", "value": "nosniff" },
+          { "key": "X-Frame-Options", "value": "DENY" }
+        ]
+      }
+    ],
+    "env": {
+      "API_KEY": "your-api-key",
+      "NODE_ENV": "production"
+    },
+    "functions": {
+      "api/index.js": {
+        "memory": 512,
+        "maxDuration": 10
+      }
+    }
+  }
+  
