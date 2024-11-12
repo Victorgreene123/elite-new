@@ -2,16 +2,16 @@
     "version": 2,
     "builds": [
       {
-        "src": "package.json",
-        "use": "@vercel/node"
-      },
-      {
         "src": "public/**/*",
         "use": "@vercel/static"
+      },
+      {
+        "src": "api/**/*.js",
+        "use": "@vercel/node"
       }
     ],
     "routes": [
-      { "src": "/api/(.*)", "dest": "/api/index.js" },
+      { "src": "/api/(.*)", "dest": "/api/$1" },
       { "src": "/(.*)", "dest": "/public/$1" }
     ],
     "rewrites": [
@@ -36,10 +36,6 @@
         ]
       }
     ],
-    "env": {
-      "API_KEY": "your-api-key",
-      "NODE_ENV": "production"
-    },
     "functions": {
       "api/index.js": {
         "memory": 512,
