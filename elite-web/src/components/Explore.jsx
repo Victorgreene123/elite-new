@@ -313,7 +313,7 @@ const Explore = () => {
 
 
 <div className='mt-12 rounded-md bg-white mx-auto text-center justify-center lg:w-2/5 w-3/5 py-1 font-semibold text-1xl'>Learn more about our AI features</div>
-
+   
 
 </div>
 <div className="text-center text-white mt-12">
@@ -325,6 +325,7 @@ const Explore = () => {
           {jobtypes.map((tab) => (
             <li
               key={tab.name}
+              
               onClick={() => setActiveTab(tab.name)}
               className={`cursor-pointer bg-gray-400 border-t-2 border-b-2 flex-shrink-0 border-white text-sm lg:text-[1.2rem] gap-2 p-2 px-3 flex items-center ${
                 activeTab === tab.name ? '' : 'border-none opacity-30'
