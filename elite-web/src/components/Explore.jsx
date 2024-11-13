@@ -19,6 +19,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Navigation } from 'swiper/modules';
 import Footer from './Footer';
+import WaitlistModal from './WaitlistModal';
 
 
 
@@ -123,6 +124,7 @@ const Jobs = [
 
 const Explore = () => {
   const [activeTab, setActiveTab] = useState('Remote');
+  const [isModalOpen, setIsModalOpen] = useState(false); 
 
   return (
     <div className="bg-black py-10 w-full">
@@ -312,7 +314,7 @@ const Explore = () => {
 
 
 
-<div className='mt-12 rounded-md bg-white mx-auto text-center justify-center lg:w-2/5 w-3/5 py-1 font-semibold text-1xl'>Learn more about our AI features</div>
+<div className='mt-12 rounded-md bg-white text-black mx-auto text-center justify-center lg:w-2/5 w-3/5 py-1 font-semibold text-1xl'>Learn more about our AI features</div>
    
 
 </div>
@@ -363,12 +365,12 @@ const Explore = () => {
 
 <div className="mt-4 w-full flex justify-center">
 
-<button className='bg-white rounded-md py-3 px-5  font-semibold'>Join Waitlist</button>
+<button  onClick={() => setIsModalOpen(true)}  className='bg-white text-black rounded-md py-3 px-5  font-semibold'>Join Waitlist</button>
       
 </div>
 <div className="relative mt-10 mb-12 py-4 ">
 <img src={join} className='w-full h-full '></img>
-<button className='bg-white rounded-md py-3 px-5 absolute right-6  bottom-5 lg:bottom-10 font-semibold'>Join Waitlist</button>
+<button  onClick={() => setIsModalOpen(true)}  className='bg-white rounded-md py-3 px-5 absolute right-6 text-black bottom-5 lg:bottom-10 font-semibold'>Join Waitlist</button>
 
 </div>
 <div className="bg-gray-400 justify-center py-4">
@@ -388,7 +390,7 @@ const Explore = () => {
             </div>
 
         </div>
-<button className='bg-white rounded-md py-3 px-5  mt-6 font-semibold'>Be the first to use the app on free subscription</button>
+<button className='bg-white text-black rounded-md py-3 px-5  mt-6 font-semibold'>Be the first to use the app on free subscription</button>
 
     </div>
 </div>
@@ -483,9 +485,9 @@ const Explore = () => {
 <div className="mb-4 text-white bg-[#000000] border border-[#CC00FF] rounded-md p-4 lg:w-4/5 w-[95%] mx-auto">
 <div className="flex items-center justify-between w-full mb-4">
   <h1 className="text-2xl font-bold text-white">About Elite</h1>
-  <button className="bg-white rounded-md py-2 px-4 text-black font-semibold hover:bg-gray-200 transition-colors">
+  <a href='/about' className="bg-white rounded-md py-2 px-4 text-black font-semibold hover:bg-gray-200 transition-colors">
     Read More
-  </button>
+  </a>
 </div>
 
 <p className='text-1xl'>
@@ -493,10 +495,11 @@ Elite is your fast track to career success. We use AI and a unique algorithm to 
 </p>
 </div>
 
-
+{/* Modal */}
+{isModalOpen && <WaitlistModal onClose={() => setIsModalOpen(false)} />} 
 </div>
 
-<Footer />
+{/* <Footer /> */}
 
 
 
