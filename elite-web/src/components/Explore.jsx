@@ -181,9 +181,9 @@ const Explore = () => {
                 <p className="mt-4">Rating</p>
                 <div className="flex justify-center text-yellow-400">
                   {Array.from({ length: Math.floor(profile.rating) }).map((_, i) => (
-                    <StarIcon key={i} className="w-5 h-5" />
+                    <StarIcon key={i} className="w-5 h-5 fill-yellow-500" />
                   ))}
-                  {profile.rating % 1 !== 0 && <StarIcon className="w-5 h-5" />} {/* Half-star icon */}
+                  {profile.rating % 1 !== 0 && <StarHalfIcon className="w-5 h-5 fill-yellow-500" />} {/* Half-star icon */}
                 </div>
 
                 <div className="bg-purple-800 rounded-xl mt-6 p-4 flex flex-wrap justify-center gap-2">
